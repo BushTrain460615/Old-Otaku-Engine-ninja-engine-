@@ -30,7 +30,7 @@ class StoryMenuState extends MusicBeatState
 		['Satin-Panties', "High", "Milf"],
 		['Cocoa', 'Eggnog', 'Winter-Horrorland'],
 		['Senpai', 'Roses', 'Thorns'],
-		['Hey-Its-Me']
+		['ugh', 'guns', 'stress']
 	];
 	var curDifficulty:Int = 1;
 
@@ -44,7 +44,7 @@ class StoryMenuState extends MusicBeatState
 		['mom', 'bf', 'gf'],
 		['parents-christmas', 'bf', 'gf'],
 		['senpai', 'bf', 'gf'],
-		['goku', 'bf', 'gf']
+		['tankman', 'bf', 'gf']
 	];
 
 	var weekNames:Array<String> = [
@@ -55,7 +55,7 @@ class StoryMenuState extends MusicBeatState
 		"MOMMY MUST MURDER",
 		"RED SNOW",
 		"hating simulator ft. moawling",
-		"It's Me Goku :D"
+		"TANKMAN"
 	];
 
 	var txtWeekTitle:FlxText;
