@@ -35,6 +35,7 @@ class OptionsMenu extends MusicBeatState
 		/* 
 			grpControls = new FlxTypedGroup<Alphabet>();
 			add(grpControls);
+
 			for (i in 0...controlsStrings.length)
 			{
 				if (controlsStrings[i].indexOf('set') != -1)
@@ -62,6 +63,7 @@ class OptionsMenu extends MusicBeatState
 			{
 				changeBinding();
 			}
+
 			if (isSettingControl)
 				waitingInput();
 			else
