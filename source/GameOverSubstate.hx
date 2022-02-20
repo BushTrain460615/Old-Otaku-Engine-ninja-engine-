@@ -22,6 +22,10 @@ class GameOverSubstate extends MusicBeatSubstate
 		{
 			case 'bf-pixel':
 				stageSuffix = '-pixel';
+				daBf = 'bf-pixel-dead';
+			case 'bf-holding-gf':
+				stageSuffix = '-warzone';
+				daBf = 'bf-holding-gf-DEAD';
 			default:
 				daBf = 'bf';
 		}
@@ -82,30 +86,11 @@ class GameOverSubstate extends MusicBeatSubstate
 		if (bf.animation.curAnim.name == 'firstDeath' && bf.animation.curAnim.finished)
 		{
 			FlxG.sound.playMusic(Paths.music('gameOver' + stageSuffix));
-			if (daStage == 'goku-house' || daStage == 'namik')
+			if (daStage == 'warzone' || daStage == 'warzone-stress')
 			{
-				FlxG.sound.play(Paths.sound('goku-' + FlxG.random.int(1, 25), 'shared'));
+				FlxG.sound.play(Paths.sound('jeffGameover-' + FlxG.random.int(1, 25), 'shared'));
 			}
 		}
-
-		if (bf.animation.curAnim.name == 'firstDeath' && bf.animation.curAnim.finished)
-			{
-				FlxG.sound.playMusic(Paths.music('gameOver' + stageSuffix));
-				if (daStage == 'vegita-house' || daStage == 'Arena')
-				{
-					FlxG.sound.play(Paths.sound('vegita-' + FlxG.random.int(1, 25), 'shared'));
-				}
-			}
-
-		if (bf.animation.curAnim.name == 'firstDeath' && bf.animation.curAnim.finished)
-			{
-				FlxG.sound.playMusic(Paths.music('gameOver' + stageSuffix));
-				if (daStage == 'volcano')
-				{
-					FlxG.sound.play(Paths.sound('gogita-' + FlxG.random.int(1, 25), 'shared'));
-				}
-			}
-	
 
 		if (FlxG.sound.music.playing)
 		{
