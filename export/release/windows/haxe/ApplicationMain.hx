@@ -32,7 +32,7 @@ class ApplicationMain
 
 		ManifestResources.init(config);
 
-		app.meta["build"] = "7";
+		app.meta["build"] = "9";
 		app.meta["company"] = "Ninja Engine";
 		app.meta["file"] = "Ninja Engine";
 		app.meta["name"] = "Ninja Engine";
