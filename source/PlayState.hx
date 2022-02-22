@@ -128,8 +128,8 @@ class PlayState extends MusicBeatState
 	var songScore:Int = 0;
 	var scoreTxt:FlxText;
 
-	var picoStep:Ps;
-	var tankStep:Ts;
+	var picoStep;
+	var tankStep;
 
 	public static var campaignScore:Int = 0;
 
