@@ -11,6 +11,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
+import flixel.tweens.FlxTween;
 import lime.utils.Assets;
 
 using StringTools;
@@ -32,6 +33,11 @@ class FreeplayState extends MusicBeatState
 	private var curPlaying:Bool = false;
 
 	private var iconArray:Array<HealthIcon> = [];
+	public static var coolColors:Array<Int> = [0xFF9271FD, 0xFF9271FD, 0xFF223344, 0xFF941653, 0xFFFC96D7, 0xFFA0D1FF, 0xFFFF78BF];
+	var trackedAssets:Array<Dynamic> = [];
+
+	var bg:FlxSprite;
+	private var intendedColor:Int;
 
 	override function create()
 	{
@@ -123,6 +129,9 @@ class FreeplayState extends MusicBeatState
 
 		add(scoreText);
 
+		
+		bg.color = songs[curSelected].color;
+		intendedColor = bg.color;
 		changeSelection();
 		changeDiff();
 
