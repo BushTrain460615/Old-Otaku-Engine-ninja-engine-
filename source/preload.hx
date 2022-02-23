@@ -1,1 +1,5 @@
-//nothing here yet
+package;
+
+class preload
+{
+}
