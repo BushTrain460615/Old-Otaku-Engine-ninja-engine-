@@ -31,9 +31,15 @@ import lime.app.Application;
 import openfl.Lib;
 import openfl.utils.Assets;
 import sys.io.Process;
+import systools.Dialogs;
+//this is from polyengine i do plan on crediting him.
+//thanks for making this cool playstate
+//i did have to fix a bit of it for my engine though lol
+#if desktop
+import Discord.DiscordClient;
+#end
 
 using StringTools;
-import systools.Dialogs;
 
 class PlayState extends MusicBeatState
 {
