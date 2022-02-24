@@ -53,6 +53,7 @@ class PlayState extends MusicBeatState
 	public static var deaths:Int = 0;
 	public static var onCountdown:Int = 0;
 	public static var daPixelZoom:Float = 6;
+	public static var campaignScore:Int = 0;
 
 	var halloweenLevel:Bool = false;
 
@@ -134,12 +135,7 @@ class PlayState extends MusicBeatState
 
 	var scoreTxt:FlxText;
 
-	public static var campaignScore:Int = 0;
-
 	var defaultCamZoom:Float = 1.05;
-
-	// how big to stretch the pixel art assets
-	public static var daPixelZoom:Float = 6;
 
 	var inCutscene:Bool = false;
 
