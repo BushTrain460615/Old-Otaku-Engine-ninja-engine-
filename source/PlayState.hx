@@ -33,11 +33,7 @@ import openfl.utils.Assets;
 import sys.io.Process;
 
 using StringTools;
-
-#if desktop
-import Discord.DiscordClient;
 import systools.Dialogs;
-#end
 
 class PlayState extends MusicBeatState
 {
@@ -60,8 +56,6 @@ class PlayState extends MusicBeatState
 	private var dad:Character;
 	private var gf:Character;
 	private var boyfriend:Boyfriend;
-
-	private var shaders:ShaderHandler;
 
 	private var notes:FlxTypedGroup<Note>;
 	private var unspawnNotes:Array<Note> = [];
