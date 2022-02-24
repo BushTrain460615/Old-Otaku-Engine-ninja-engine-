@@ -31,7 +31,6 @@ import lime.app.Application;
 import openfl.Lib;
 import openfl.utils.Assets;
 import sys.io.Process;
-import systools.Dialogs;
 //this is from polyengine i do plan on crediting him.
 //thanks for making this cool playstate
 //i did have to fix a bit of it for my engine though lol
@@ -53,6 +52,7 @@ class PlayState extends MusicBeatState
 	public static var songEnded:Bool = false;
 	public static var deaths:Int = 0;
 	public static var onCountdown:Int = 0;
+	public static var daPixelZoom:Float = 6;
 
 	var halloweenLevel:Bool = false;
 
@@ -81,7 +81,6 @@ class PlayState extends MusicBeatState
 	private var strumLineNotes:FlxTypedGroup<FlxSprite>;
 	private var playerStrums:FlxTypedGroup<FlxSprite>;
 	private var cpuStrums:FlxTypedGroup<FlxSprite>;
-	private var grpNoteSplashes:FlxTypedGroup<NoteSplash>;
 
 	private var camZooming:Bool = false;
 	private var curSong:String = "";
@@ -717,13 +716,13 @@ class PlayState extends MusicBeatState
 
 		if (curStage != 'schoolEvil')
 		{
-			Application.current.window.title = "Friday Night Funkin' - PolyEngine - PLAYING: " + artist + ' - ' + SONG.song.toUpperCase() + ' ['
+			Application.current.window.title = "Friday Night Funkin' - Ninja Engine - PLAYING: " + artist + ' - ' + SONG.song.toUpperCase() + ' ['
 				+ storyDifficultyText.toUpperCase() + ']';
 		}
 
 		if (songEnded)
 		{
-			Application.current.window.title = "Friday Night Funkin' - PolyEngine";
+			Application.current.window.title = "Friday Night Funkin' - NinjaEngine";
 		}
 		#end
 
