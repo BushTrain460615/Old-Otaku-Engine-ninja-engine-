@@ -1,9 +1,6 @@
 package;
 
 import Section.SwagSection;
-import ShaderHandler.*;
-import ShaderHandler;
-import Shaders;
 import Song.SwagSong;
 import WiggleEffect.WiggleEffectType;
 import flixel.FlxBasic;
