@@ -530,17 +530,6 @@ class Character extends FlxSprite
 		super.update(elapsed);
 	}
 
-	function loadOffsetFile(character:String = 'bf')
-	{
-		var offset:Array<String> = CoolUtil.coolTextFile(Paths.txt('images/characters/' + character + "Offsets", "shared", true));
-
-		for (i in 0...offset.length)
-		{
-			var data:Array<String> = offset[i].split(' ');
-			addOffset(data[0], Std.parseInt(data[1]), Std.parseInt(data[2]));
-		}
-	}
-
 	private var danced:Bool = false;
 
 	/**
