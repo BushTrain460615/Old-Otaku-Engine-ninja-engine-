@@ -31,14 +31,12 @@ import lime.app.Application;
 import openfl.Lib;
 import openfl.utils.Assets;
 import sys.io.Process;
-//this is from polyengine i do plan on crediting him.
-//thanks for making this cool playstate
-//i did have to fix a bit of it for my engine though lol
+
+using StringTools;
+
 #if desktop
 import Discord.DiscordClient;
 #end
-
-using StringTools;
 
 class PlayState extends MusicBeatState
 {
@@ -54,7 +52,7 @@ class PlayState extends MusicBeatState
 	public static var onCountdown:Int = 0;
 	public static var daPixelZoom:Float = 6;
 	public static var campaignScore:Int = 0;
-
+	
 	var halloweenLevel:Bool = false;
 
 	// var shaderBullshit:BlendModeEffect;
@@ -82,6 +80,7 @@ class PlayState extends MusicBeatState
 	private var strumLineNotes:FlxTypedGroup<FlxSprite>;
 	private var playerStrums:FlxTypedGroup<FlxSprite>;
 	private var cpuStrums:FlxTypedGroup<FlxSprite>;
+	private var grpNoteSplashes:FlxTypedGroup<NoteSplash>;
 
 	private var camZooming:Bool = false;
 	private var curSong:String = "";
@@ -124,7 +123,7 @@ class PlayState extends MusicBeatState
 	var bgGirls:BackgroundGirls;
 	var wiggleShit:WiggleEffect = new WiggleEffect();
 
-	var tankWatchtower;
+	var tankWatchtower:BGSprite;
 	var tankGround:BGSprite;
 	var tankmanRun:FlxTypedGroup<TankmenBG>;
 	var foregroundSprites:FlxTypedGroup<BGSprite>;
@@ -135,7 +134,9 @@ class PlayState extends MusicBeatState
 
 	var scoreTxt:FlxText;
 
+
 	var defaultCamZoom:Float = 1.05;
+
 
 	var inCutscene:Bool = false;
 
@@ -712,13 +713,13 @@ class PlayState extends MusicBeatState
 
 		if (curStage != 'schoolEvil')
 		{
-			Application.current.window.title = "Friday Night Funkin' - Ninja Engine - PLAYING: " + artist + ' - ' + SONG.song.toUpperCase() + ' ['
+			Application.current.window.title = "Friday Night Funkin' - PolyEngine - PLAYING: " + artist + ' - ' + SONG.song.toUpperCase() + ' ['
 				+ storyDifficultyText.toUpperCase() + ']';
 		}
 
 		if (songEnded)
 		{
-			Application.current.window.title = "Friday Night Funkin' - NinjaEngine";
+			Application.current.window.title = "Friday Night Funkin' - PolyEngine";
 		}
 		#end
 
@@ -2941,3 +2942,4 @@ class PlayState extends MusicBeatState
 		}
 	}
 }
+

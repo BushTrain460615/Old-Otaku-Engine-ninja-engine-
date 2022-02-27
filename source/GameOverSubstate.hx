@@ -18,14 +18,20 @@ class GameOverSubstate extends MusicBeatSubstate
 	{
 		var daStage = PlayState.curStage;
 		var daBf:String = '';
-		switch (PlayState.SONG.player1)
+		switch (daStage)
 		{
-			case 'bf-pixel':
+			case 'school':
+				stageSuffix = '-pixel';
+				daBf = 'bf-pixel-dead';
+			case 'schoolEvil':
 				stageSuffix = '-pixel';
 				daBf = 'bf-pixel-dead';
 			default:
 				daBf = 'bf';
 		}
+
+		if (PlayState.SONG.song.toLowerCase() == 'stress')
+			daBf = 'bf-holding-gf-dead';
 
 		super();
 
@@ -46,6 +52,9 @@ class GameOverSubstate extends MusicBeatSubstate
 		FlxG.camera.target = null;
 
 		bf.playAnim('firstDeath');
+
+		FlxG.sound.cache(Paths.music('gameOver' + stageSuffix));
+		FlxG.sound.cache(Paths.music('gameOverEnd' + stageSuffix));
 	}
 
 	override function update(elapsed:Float)
@@ -61,11 +70,13 @@ class GameOverSubstate extends MusicBeatSubstate
 		{
 			FlxG.sound.music.stop();
 
+			remove(camFollow);
+			remove(bf);
+
 			if (PlayState.isStoryMode)
 				FlxG.switchState(new StoryMenuState());
 			else
 				FlxG.switchState(new FreeplayState());
-			PlayState.loadRep = false;
 		}
 
 		if (bf.animation.curAnim.name == 'firstDeath' && bf.animation.curAnim.curFrame == 12)
@@ -76,17 +87,6 @@ class GameOverSubstate extends MusicBeatSubstate
 		if (bf.animation.curAnim.name == 'firstDeath' && bf.animation.curAnim.finished)
 		{
 			FlxG.sound.playMusic(Paths.music('gameOver' + stageSuffix));
-		}
-
-		var daStage = PlayState.curStage;
-
-		if (bf.animation.curAnim.name == 'firstDeath' && bf.animation.curAnim.finished)
-		{
-			FlxG.sound.playMusic(Paths.music('gameOver' + stageSuffix));
-			if (daStage == 'warzone' || daStage == 'warzone-stress')
-			{
-				FlxG.sound.play(Paths.sound('jeffGameover-' + FlxG.random.int(1, 25), 'shared'));
-			}
 		}
 
 		if (FlxG.sound.music.playing)
@@ -110,12 +110,15 @@ class GameOverSubstate extends MusicBeatSubstate
 		{
 			isEnding = true;
 			bf.playAnim('deathConfirm', true);
-			FlxG.sound.music.stop();
+			FlxG.sound.music.fadeOut(0.1);
 			FlxG.sound.play(Paths.music('gameOverEnd' + stageSuffix));
 			new FlxTimer().start(0.7, function(tmr:FlxTimer)
 			{
 				FlxG.camera.fade(FlxColor.BLACK, 2, false, function()
 				{
+					remove(camFollow);
+					remove(bf);
+
 					LoadingState.loadAndSwitchState(new PlayState());
 				});
 			});
