@@ -894,11 +894,7 @@ class PlayState extends MusicBeatState
 
 		doof.scrollFactor.set();
 		doof.finishThing = startCountdown;
-		var dummysTalking:Dialogue = new Dialogue(false, dialogue);
 
-		dummysTalking.y = FlxG.height * 0.5;
-		dummysTalking.scrollFactor.set();
-		dummysTalking.finishThing = startCountdown;
 		Conductor.songPosition = -5000;
 		strumLine = new FlxSprite(0, 50).makeGraphic(FlxG.width, 10);
 		strumLine.scrollFactor.set();
@@ -954,7 +950,6 @@ class PlayState extends MusicBeatState
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
-		dummysTalking.cameras = [camHUD];
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
 		// UI_camera.zoom = 1;
@@ -968,16 +963,12 @@ class PlayState extends MusicBeatState
 			switch (curSong.toLowerCase())
 			{
 				case "tutorial":
-					add(dummysTalking);
 					inCutscene = true;
 				case "bopeebo":
-					add(dummysTalking);
 					inCutscene = true;
 				case "fresh":
-					add(dummysTalking);
 					inCutscene = true;
 				case "dadbattle":
-					add(dummysTalking);
 					inCutscene = true;
 				case "winter-horrorland":
 					var blackScreen:FlxSprite = new FlxSprite(0, 0).makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
